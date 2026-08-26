@@ -1,0 +1,69 @@
+解の二分探索
+1. [最小値の最大化]
+mnに絶対に達成できる値以下の値を入れる
+mxに絶対に達成できない大きい値を入れる [mn, mx)
+ll mn = 0, mx = INFL;
+while(mn < mx - 1){
+    mid = (mn + mx) / 2;
+
+    // O(N)でチェック
+
+    if(ok){ // mid以上にできる
+        mn = mid;
+    } else {
+        mx = mid;
+    }
+}
+// mnが答え
+
+
+
+2. [最大値の最小化]
+mnに絶対に達成できない小さい値を入れる
+mxに絶対に達成できる値以上の値を入れる (mn, mx]
+ll mn = -1, mx = INFL;
+while(mn < mx - 1){
+    ll mid = (mn + mx) / 2;
+
+    // O(N)でチェック
+
+    if(ok){ // mid以下にできる
+        mx = mid;
+    } else {
+        mn = mid;
+    }
+}
+// mxが答え
+
+
+
+3. [三分探索]
+下に凸な関数f(x)の最小値を求める
+
+ll f(ll x){
+    ll ret = 0;
+
+    // 愚直に計算
+
+    return ret;
+}
+
+// left  に定義域の最小値を入れる (関数fの引数xの定義域)
+// right に定義域の最大値を入れる (関数fの引数xの定義域)
+ll left = 0, right = 2e18;
+while(right - left > 2){ // 少し幅を持たせると安全
+    ll le = (2*left + right) / 3; // 左寄り
+    ll ri = (left + 2*right) / 3; // 右寄り
+    if(f(le) < f(ri)){ // ここでは小さい方が良い
+        right = ri; // 右を縮めて左に寄せる
+    } else {
+        left = le; // 左を縮めて右に寄せる
+    }
+}
+
+// 解候補の区間を再検証
+ll res = 2e18; // 最小化
+for(ll x = left, x < right+1; ++x){
+    chmin(res, f(x));
+}
+// resが答え
