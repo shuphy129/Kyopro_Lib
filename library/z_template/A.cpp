@@ -183,6 +183,7 @@ constexpr bool DEBUG = false;
 const int INF = 2e9;  // 2*10^9
 //const int INF = 1'073'741'823; // 2倍する場合
 const ll INFL = 2e18; // 2*10^18
+// https://github.com/shuphy129/Kyopro_Lib/tree/main/library
 /* =========================================== */
 
 int main(){
