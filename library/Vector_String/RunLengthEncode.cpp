@@ -5,16 +5,16 @@
 /* =========================================== */
 
 /* string用 ランレングス圧縮 */
-/* <文字, 連続数>のpair配列を返す */
-vector<pair<char, int>> rle(const string &s){
+/* <連続数, 文字>のpair配列を返す */
+vector<pair<int, char>> rle(const string &s){
     int n = s.size();
-    vector<pair<char, int>> ret;
+    vector<pair<int, char>> ret;
 
     for(int i = 0; i < n; ++i){
-        if(ret.empty() || ret.back().fi != s[i]){
-            ret.emplace_back(s[i], 1);
+        if(ret.empty() || ret.back().se != s[i]){
+            ret.emplace_back(1, s[i]);
         } else {
-            ++ret.back().se;
+            ++ret.back().fi;
         }
     }
 
@@ -22,17 +22,17 @@ vector<pair<char, int>> rle(const string &s){
 }
 
 /* vector用 ランレングス圧縮 */
-/* <要素, 連続数>のpair配列を返す */
+/* <連続数, 要素>のpair配列を返す */
 template <class T>
-vector<pair<T, int>> rle(const vector<T> &v){
+vector<pair<int, T>> rle(const vector<T> &v){
     int n = v.size();
-    vector<pair<T, int>> ret;
+    vector<pair<int, T>> ret;
 
     for(int i = 0; i < n; ++i){
-        if(ret.empty() || ret.back().fi != v[i]){
-            ret.emplace_back(v[i], 1);
+        if(ret.empty() || ret.back().se != v[i]){
+            ret.emplace_back(1, v[i]);
         } else {
-            ++ret.back().se;
+            ++ret.back().fi;
         }
     }
     
