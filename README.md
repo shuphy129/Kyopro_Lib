@@ -19,3 +19,8 @@ int main(){
     return 0;
 }
 ```
+
+```
+g++ -Wall A.cpp
+./a.out
+```
