@@ -2,7 +2,7 @@
 
 ## 使い方
 
-```sh
+```
 git clone https://github.com/shuphy129/Kyopro_Lib.git
 ```
 
@@ -21,7 +21,7 @@ int main(){
 ```
 
 コンパイルと実行
-```sh
+```
 g++ -Wall A.cpp
 ./a.out
 ```
