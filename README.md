@@ -20,7 +20,7 @@ int main(){
 }
 ```
 
-実行
+コンパイル & 実行
 ```
 g++ -Wall A.cpp
 ./a.out
