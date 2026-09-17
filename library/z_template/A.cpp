@@ -43,7 +43,12 @@ inline ll floor_int(const ll a, const ll b){ // doubleキャスト不要の切�
     if(a % b < 0) return (a / b) - 1;
     return a / b;
 }
-ll isqrt(ll n){ // floor(sqrt(n))を求める
+inline ll mod_pos(const ll n, const ll mod){ // 正の余りを求める
+    if(mod <= 0) return -1;
+    if(n >= 0) return n % mod;
+    return (n % mod + mod) % mod;
+}
+inline ll isqrt(ll n){ // floor(sqrt(n))を求める
     if(n <= 0) return 0;
     ll x = sqrt(n);
     while((x + 1) * (x + 1) <= n) ++x;
@@ -189,6 +194,10 @@ const ll INFL = 2e18; // 2*10^18
 int main(){
     // ios::sync_with_stdio(false);
 	// cin.tie(nullptr);
+    int n;
+    while(cin >> n){
+        cout << mod_pos(n, 10) << el;
+    }
     return 0;
 }
 
