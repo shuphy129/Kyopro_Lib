@@ -194,10 +194,6 @@ const ll INFL = 2e18; // 2*10^18
 int main(){
     // ios::sync_with_stdio(false);
 	// cin.tie(nullptr);
-    int n;
-    while(cin >> n){
-        cout << mod_pos(n, 10) << el;
-    }
     return 0;
 }
 
