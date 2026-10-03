@@ -46,6 +46,21 @@ struct ExSet {
     // st.find_by_order(k); // k番目(0-indexed)のイテレータを返す
     // st.order_of_key(引数); // 引数以上の最初の要素がtreeの何番目か返す(idxが返るlower_bound)
 
+    T max() const { // 最大値
+        if(st.empty()){
+            MEMO("ExSet(max): EMPTY!");
+            return -1; // エラー戻り値は場合によって変える
+        }
+        return *st.rbegin();
+    }
+    T min() const { // 最小値
+        if(st.empty()){
+            MEMO("ExSet(min): EMPTY!");
+            return -1; // エラー戻り値は場合によって変える
+        }
+        return *st.begin();
+    }
+
     T operator[](int i) const {
         if(i >= (int)st.size()){
             MEMO("ExSet(random access): idx ERROR! max_idx =");
