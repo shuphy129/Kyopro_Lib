@@ -4,16 +4,18 @@
 #include <shuphy.hpp>
 /* =========================================== */
 
-/* LIS 最長増加部分列 O(NlogN) */
-/* 長さのみ返す */
-ll lis(const vector<ll>& v){
+/* LIS 最長増加部分列 O(NlogN) 長さのみ返す*/
+/* strictly を false にすると広義単調増加になる */
+ll lis(const vector<ll>& v, bool strictly = true){
     ll n = v.size();
     if(n == 0) return 0;
 
     vector<ll> dp(n, INFL);
+    auto itr = dp.begin();
 
     rep(i, n){
-        auto itr = lower_bound(dp.begin(), dp.end(), v[i]);
+        if(strictly) itr = lower_bound(dp.begin(), dp.end(), v[i]);
+        else itr = upper_bound(dp.begin(), dp.end(), v[i]);
         *itr = v[i];
     }
     // dpに格納されている値が部分列の条件を満たしているとは限らない
