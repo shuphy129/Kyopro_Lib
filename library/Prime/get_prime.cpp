@@ -4,6 +4,7 @@
 #include <shuphy.hpp>
 /* =========================================== */
 
+// https://qiita.com/drken/items/3beb679e54266f20ab63
 /* 1 以上 N 以下の整数が素数かどうかを返す */
 /* N = 10^6程度 */
 vector<bool> era(int N) {
